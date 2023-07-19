@@ -7,7 +7,7 @@ import {store} from '../store.js'
       return{
         //dati
         store,
-
+        flag: false
       }
     },
     methods: {
@@ -33,6 +33,10 @@ import {store} from '../store.js'
 
           <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
             <div>
+
+                <div class="img_movie">
+                    <img :src="`https://image.tmdb.org/t/p/w342${singleMovie.backdrop_path}`" alt="">
+                </div>
               <h5>
                 {{ singleMovie.title }}
               </h5>
@@ -42,6 +46,9 @@ import {store} from '../store.js'
               <div class="flag_box">
                   <img :src="`src/assets/img/${singleMovie.original_language}.png`" alt="">
               </div>
+              <!-- <h6>
+                {{ singleMovie.original_language }}
+              </h6> -->
               <strong>
                 {{ singleMovie.vote_average }}
               </strong>
@@ -50,6 +57,10 @@ import {store} from '../store.js'
 
           <div class="my_card series" v-for="(singleFilm, index) in store.serietv" :key="index">
             <div>
+
+                <div class="img_movie">
+                    <img :src="`https://image.tmdb.org/t/p/w342${singleFilm.backdrop_path}`" alt="">
+                </div>
               <h5>
                 {{ singleFilm.name }}
               </h5>
@@ -60,7 +71,9 @@ import {store} from '../store.js'
               <div class="flag_box">
                   <img :src="`src/assets/img/${singleFilm.original_language}.png`" alt="">
               </div>
-                
+              <!-- <h6>
+                {{ singleFilm.original_language }}
+              </h6> -->
               <strong>
                 {{ singleFilm.vote_average }}
               </strong>
@@ -92,6 +105,14 @@ main {
     margin: 10px 10px;
     padding: 10px 5px;
     background-color: chocolate;
+
+    .img_movie{
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
 
     .flag_box{
         width: 15px;
