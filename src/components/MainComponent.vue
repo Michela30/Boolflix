@@ -32,17 +32,34 @@ import {store} from '../store.js'
 
           <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
             <div>
-              <h2>
-                {{ singleMovie.title }}
-              </h2>
               <h4>
-                {{ singleMovie.original_title }}
+                {{ singleMovie.title }}
               </h4>
+              <h6>
+                {{ singleMovie.original_title }}
+              </h6>
               <h6>
                 {{ singleMovie.original_language }}
               </h6>
               <strong>
                 {{ singleMovie.vote_average }}
+              </strong>
+            </div>
+          </div>
+
+          <div class="my_card_series" v-for="(singleFilm, index) in store.serietv" :key="index">
+            <div>
+              <h4>
+                {{ singleFilm.name }}
+              </h4>
+              <h6>
+                {{ singleFilm.original_name }}
+              </h6>
+              <h6>
+                {{ singleFilm.original_language }}
+              </h6>
+              <strong>
+                {{ singleFilm.vote_average }}
               </strong>
             </div>
           </div>
@@ -66,10 +83,19 @@ main{
 
 .my_card{
   width: 200px;
-  height: 200px;
+  height: 250px;
   text-align: center;
   margin: 50px 10px;
-  padding: 10px;
+  padding: 10px 5px;
   background-color: chocolate;
+}
+
+.my_card_series{
+  width: 200px;
+  height: 250px;
+  text-align: center;
+  margin: 50px 10px;
+  padding: 10px 5px;
+  background-color: purple;
 }
 </style>

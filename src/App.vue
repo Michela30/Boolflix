@@ -33,13 +33,28 @@ import axios from 'axios';
         })
       },
 
+      getSeries(){
+          axios.get('https://api.themoviedb.org/3/search/tv?api_key=1ca56690c738fe07273dfdadfc643ca2', {
+                    params: {
+                        query: this.store.searchBar
+                       
+                    }
+                })
+        .then(response => {
+          console.log(response.data.results)
+          this.store.serietv = response.data.results;
+        })
+      },
+
       searchMovie(){
         this.getMovie();
+        this.getSeries();
         console.log('azione cerca film')
       }
     },
     created(){
       this.getMovie();
+      this.getSeries();
 
     }
   }
