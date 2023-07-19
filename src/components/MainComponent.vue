@@ -7,11 +7,21 @@ import {store} from '../store.js'
       return{
         //dati
         store,
-        flag: false
+
       }
     },
     methods: {
         //function
+        getVote(value){
+            
+            const finalVote = Math.floor(value / 2 );
+        
+            console.log(finalVote)
+            return finalVote
+        }
+    },
+    computed:{
+
     },
     components: {
         //dichiarazione
@@ -31,7 +41,8 @@ import {store} from '../store.js'
       <div class="container">
         <div class="row justify-content-center">
 
-          <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
+        <!-- movie-->
+        <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
             <div>
 
                 <div class="img_movie">
@@ -50,12 +61,15 @@ import {store} from '../store.js'
                 {{ singleMovie.original_language }}
               </h6> -->
               <strong>
-                {{ singleMovie.vote_average }}
+                {{ getVote(singleMovie.vote_average) }}
               </strong>
+              
             </div>
-          </div>
+        </div>
 
-          <div class="my_card series" v-for="(singleFilm, index) in store.serietv" :key="index">
+        <!-- serie tv -->
+
+        <div class="my_card series" v-for="(singleFilm, index) in store.serietv" :key="index">
             <div>
 
                 <div class="img_movie">
@@ -75,10 +89,11 @@ import {store} from '../store.js'
                 {{ singleFilm.original_language }}
               </h6> -->
               <strong>
-                {{ singleFilm.vote_average }}
+                {{ getVote(singleFilm.vote_average) }}
               </strong>
+
             </div>
-          </div>
+        </div>
 
         </div>
       </div>
@@ -100,13 +115,13 @@ main {
 
 .my_card {
     width: calc(100% / 6);
-    height: 250px;
+    height: 300px;
     text-align: center;
     margin: 10px 10px;
     padding: 10px 5px;
     background-color: chocolate;
 
-    .img_movie{
+    .img_movie {
 
         img {
             width: 100%;
@@ -114,12 +129,12 @@ main {
         }
     }
 
-    .flag_box{
+    .flag_box {
         width: 15px;
         height: 10px;
         margin-bottom: 20px;
 
-        img{
+        img {
             width: 100%;
         }
     }

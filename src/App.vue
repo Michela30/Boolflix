@@ -50,7 +50,8 @@ import axios from 'axios';
         this.getMovie();
         this.getSeries();
         console.log('azione cerca film')
-      }
+      },
+      
     },
     created(){
       this.getMovie();
