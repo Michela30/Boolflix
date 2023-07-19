@@ -7,6 +7,7 @@ import {store} from '../store.js'
       return{
         //dati
         store,
+
       }
     },
     methods: {
@@ -32,32 +33,34 @@ import {store} from '../store.js'
 
           <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
             <div>
-              <h4>
+              <h5>
                 {{ singleMovie.title }}
-              </h4>
+              </h5>
               <h6>
                 {{ singleMovie.original_title }}
               </h6>
-              <h6>
-                {{ singleMovie.original_language }}
-              </h6>
+              <div class="flag_box">
+                  <img :src="`src/assets/img/${singleMovie.original_language}.png`" alt="">
+              </div>
               <strong>
                 {{ singleMovie.vote_average }}
               </strong>
             </div>
           </div>
 
-          <div class="my_card_series" v-for="(singleFilm, index) in store.serietv" :key="index">
+          <div class="my_card series" v-for="(singleFilm, index) in store.serietv" :key="index">
             <div>
-              <h4>
+              <h5>
                 {{ singleFilm.name }}
-              </h4>
+              </h5>
               <h6>
                 {{ singleFilm.original_name }}
               </h6>
-              <h6>
-                {{ singleFilm.original_language }}
-              </h6>
+              
+              <div class="flag_box">
+                  <img :src="`src/assets/img/${singleFilm.original_language}.png`" alt="">
+              </div>
+                
               <strong>
                 {{ singleFilm.vote_average }}
               </strong>
@@ -76,26 +79,32 @@ import {store} from '../store.js'
 <style lang="scss" scoped>
 @use '../assets/scss/variables.scss' as *;
 
-main{
- 
-  background-color: bisque;
+main {
+    height: calc(100vh - 100px);
+    background-color: bisque;
+    overflow-y: auto;
 }
 
-.my_card{
-  width: 200px;
-  height: 250px;
-  text-align: center;
-  margin: 50px 10px;
-  padding: 10px 5px;
-  background-color: chocolate;
+.my_card {
+    width: calc(100% / 6);
+    height: 250px;
+    text-align: center;
+    margin: 10px 10px;
+    padding: 10px 5px;
+    background-color: chocolate;
+
+    .flag_box{
+        width: 15px;
+        height: 10px;
+        margin-bottom: 20px;
+
+        img{
+            width: 100%;
+        }
+    }
 }
 
-.my_card_series{
-  width: 200px;
-  height: 250px;
-  text-align: center;
-  margin: 50px 10px;
-  padding: 10px 5px;
-  background-color: purple;
+.series {
+    background-color: purple;
 }
 </style>
