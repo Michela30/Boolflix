@@ -3,12 +3,15 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+
+import {store} from './store.js'
+
 import axios from 'axios';
 
    export default {
     data() {
       return{
-
+        store,
       }
     },
     components: {
@@ -16,11 +19,27 @@ import axios from 'axios';
       MainComponent,
       FooterComponent
     },
+    methods: {
+      getMovie(){
+          axios.get('https://api.themoviedb.org/3/search/movie?api_key=1ca56690c738fe07273dfdadfc643ca2', {
+                    params: {
+                        query: this.store.searchBar
+                       
+                    }
+                })
+        .then(response => {
+          console.log(response.data.results)
+          this.store.movie = response.data.results;
+        })
+      },
+
+      searchMovie(){
+        this.getMovie();
+        console.log('azione cerca film')
+      }
+    },
     created(){
-      axios.get('')
-      .then(response => {
-        console.log(response.data)
-      })
+      this.getMovie();
 
     }
   }
@@ -30,7 +49,7 @@ import axios from 'axios';
 
 <template>
   <div>
-    <HeaderComponent/>
+    <HeaderComponent @search="searchMovie()"/>
 
     <MainComponent/>
 
