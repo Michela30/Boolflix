@@ -1,6 +1,7 @@
 <script>
 //import
 import {store} from '../store.js'
+import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 
    export default {
     data() {
@@ -18,13 +19,14 @@ import {store} from '../store.js'
         
             console.log(finalVote)
             return finalVote
-        }
+        },
     },
     computed:{
 
     },
     components: {
         //dichiarazione
+        SingleMovieSeries,
     },
     props:{
         //utilizzo per file padre
@@ -43,56 +45,13 @@ import {store} from '../store.js'
 
         <!-- movie-->
         <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
-            <div>
-
-                <div class="img_movie">
-                    <img :src="`https://image.tmdb.org/t/p/w342${singleMovie.backdrop_path}`" alt="">
-                </div>
-              <h5>
-                {{ singleMovie.title }}
-              </h5>
-              <h6>
-                {{ singleMovie.original_title }}
-              </h6>
-              <div class="flag_box">
-                  <img :src="`src/assets/img/${singleMovie.original_language}.png`" alt="">
-              </div>
-              <!-- <h6>
-                {{ singleMovie.original_language }}
-              </h6> -->
-              <strong>
-                {{ getVote(singleMovie.vote_average) }}
-              </strong>
-              
-            </div>
+           <SingleMovieSeries :elementData="singleMovie"/>
         </div>
 
         <!-- serie tv -->
 
-        <div class="my_card series" v-for="(singleFilm, index) in store.serietv" :key="index">
-            <div>
-
-                <div class="img_movie">
-                    <img :src="`https://image.tmdb.org/t/p/w342${singleFilm.backdrop_path}`" alt="">
-                </div>
-              <h5>
-                {{ singleFilm.name }}
-              </h5>
-              <h6>
-                {{ singleFilm.original_name }}
-              </h6>
-              
-              <div class="flag_box">
-                  <img :src="`src/assets/img/${singleFilm.original_language}.png`" alt="">
-              </div>
-              <!-- <h6>
-                {{ singleFilm.original_language }}
-              </h6> -->
-              <strong>
-                {{ getVote(singleFilm.vote_average) }}
-              </strong>
-
-            </div>
+        <div class="my_card series" v-for="(singleSeries, index) in store.serietv" :key="index">
+            <SingleMovieSeries :elementData="singleSeries"/>
         </div>
 
         </div>
@@ -121,23 +80,7 @@ main {
     padding: 10px 5px;
     background-color: chocolate;
 
-    .img_movie {
-
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-
-    .flag_box {
-        width: 15px;
-        height: 10px;
-        margin-bottom: 20px;
-
-        img {
-            width: 100%;
-        }
-    }
+   
 }
 
 .series {
