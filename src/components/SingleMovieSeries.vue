@@ -13,9 +13,7 @@
     computed: {
         vote(){
             
-            const finalVote = Math.floor(this.elementData.vote_average / 2 );
-        
-            console.log(finalVote)
+            const finalVote = Math.ceil(this.elementData.vote_average / 2 );
             return finalVote
         },
 
@@ -58,7 +56,7 @@
 
         <div class="img_movie">
             <img v-if="elementData.backdrop_path == null" src="../assets/img/posternotfound.png" alt="">
-            
+
             <img v-else :src="`https://image.tmdb.org/t/p/original${elementData.backdrop_path}`" alt="">
         </div>
             <h5>
@@ -73,7 +71,9 @@
             </div>
         
             <strong>
-            {{ vote }}
+                {{ vote }}
+                <i v-for="num in vote" :key="num" class="fa-solid fa-star"></i>
+                <i  v-for="num in (5 - vote)" :key="num" class="fa-regular fa-star"></i>
             </strong>
 
 </div>
@@ -103,4 +103,7 @@
         }
     }
 
+    .fa-star{
+        color: gold;
+    }
 </style>

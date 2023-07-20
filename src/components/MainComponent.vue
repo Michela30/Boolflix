@@ -44,15 +44,23 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
         <div class="row justify-content-center">
 
         <!-- movie-->
-        <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
-           <SingleMovieSeries :elementData="singleMovie"/>
-        </div>
+
+        <h1>
+            Movie
+        </h1>
+            <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
+            <SingleMovieSeries :elementData="singleMovie"/>
+            </div>
 
         <!-- serie tv -->
+        
+        <h1 class="mt-5">
+            Serie Tv
+        </h1>
 
-        <div class="my_card series" v-for="(singleSeries, index) in store.serietv" :key="index">
-            <SingleMovieSeries :elementData="singleSeries"/>
-        </div>
+            <div class="my_card series" v-for="(singleSeries, index) in store.serietv" :key="index">
+                <SingleMovieSeries :elementData="singleSeries"/>
+            </div>
 
         </div>
       </div>

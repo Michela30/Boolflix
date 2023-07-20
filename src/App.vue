@@ -28,7 +28,6 @@ import axios from 'axios';
                     }
                 })
         .then(response => {
-          console.log(response.data.results)
           this.store.movie = response.data.results;
         })
       },
@@ -41,7 +40,6 @@ import axios from 'axios';
                     }
                 })
         .then(response => {
-          console.log(response.data.results)
           this.store.serietv = response.data.results;
         })
       },
