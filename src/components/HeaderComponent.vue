@@ -30,10 +30,10 @@ import {store} from '../store.js'
        
 
     <div class="d-flex">
-        <div class="col-6 mx-5">
+        <div class="col mx-5">
 
             <div class="d-flex left-nav">
-                <a class="navbar-brand text-danger fs-2 pt-1" href="#">
+                <a class="navbar-brand text-danger fs-2 pt-2" href="#">
                     Boolflix
                 </a>
                     
@@ -43,7 +43,7 @@ import {store} from '../store.js'
                 <ul class="dropdown-menu">
                     <li>
                         <a class="dropdown-item" href="#">
-                            Film
+                            Movie
                         </a>
                     </li>
                     <li>
@@ -69,7 +69,7 @@ import {store} from '../store.js'
             </div>
         </div>
 
-        <div class="col-6">
+        <div class="col">
             <div class="d-flex right-nav">
 
                 <form action="" @submit.prevent="$emit('search')" class="d-flex">

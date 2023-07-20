@@ -26,7 +26,9 @@
 
 <template>
     <footer>
-        FOOTER
+        <p class="text-danger">
+          Powered by @Michela-Boolflix
+        </p>
     </footer>
 
 </template>
@@ -36,5 +38,8 @@
 <style lang="scss" scoped>
 @use '../assets/scss/variables.scss' as *;
 
+footer{
+  background-color: black;
+}
 
 </style>

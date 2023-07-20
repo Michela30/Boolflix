@@ -41,32 +41,46 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 
     <main>
       
-          <h3 class="ms-2">
-              Movie
-          </h3>
+        <h3 class="text-white ms-2">
+            Movie
+        </h3>
 
-        <div class="d-flex">
+        <div class="d-flex card-row">
         <!-- movie-->
-            <div class="my_card mb-5" v-for="(singleMovie, index) in store.movie" :key="index">
-            <SingleMovieSeries :elementData="singleMovie"/>
+            <div v-if="store.movie.length > 0" class="d-flex">
+                <div class="my_card mb-5" v-for="(singleMovie, index) in store.movie" :key="index">
+                <SingleMovieSeries :elementData="singleMovie"/>
+                </div>
+
+            </div>
+            <div v-else>
+                <h3 class="overflow-y-hidden">
+                   Non ci sono risultati 
+                </h3>
             </div>
 
         </div>
         
-        <h3 class="mt-5 m-2">
+        <h3 class="text-white mt-5 m-2">
             Serie Tv
         </h3>
         <!-- serie tv -->
 
-        <div class="d-flex">
+        <div class="d-flex card-row">
 
-            <div class="my_card series" v-for="(singleSeries, index) in store.serietv" :key="index">
-                <SingleMovieSeries :elementData="singleSeries"/>
+            <div v-if="store.serietv.length > 0" class="d-flex">
+
+                <div class="my_card series" v-for="(singleSeries, index) in store.serietv" :key="index">
+                    <SingleMovieSeries :elementData="singleSeries"/>
+                </div>
             </div>
 
+            <div v-else>
+                <h3 class="overflow-y-hidden">
+                   Non ci sono risultati 
+                </h3>
+            </div>
         </div>
-
-
     
       
     </main>
@@ -80,19 +94,19 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 @use '../assets/scss/variables.scss' as *;
 
 main {
-    height: calc(100vh - 100px);
-    background-color: bisque;
-    overflow-y: auto;
+    background-color: black;
     padding: 20px 30px;
 }
-
+.card-row{
+    overflow-x: auto;
+}
 .my_card {
     width: 200px;
     height: 300px;
     text-align: center;
     margin: 10px 10px;
     flex-shrink: 0;
-
+    
 }
 
 </style>

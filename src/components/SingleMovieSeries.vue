@@ -63,20 +63,20 @@
     
                 <p>
     
-                    <strong>
+                    <span>
                         Titolo: 
-                    </strong>
+                    </span>
                     {{ elementData.title ?? elementData.name }}
                 </p>
     
                 <p>
-                    <strong>
+                    <span>
                         Titolo originale:
-                    </strong>
+                    </span>
                 {{ elementData.original_title ?? elementData.original_name }}
                 </p>
     
-                <strong>
+                <span>
                     Voto:
                     <span>
                         {{ vote }}
@@ -84,7 +84,7 @@
     
                     <i v-for="num in vote" :key="num" class="fa-solid fa-star"></i>
                     <i  v-for="num in (5 - vote)" :key="num" class="fa-regular fa-star"></i>
-                </strong>
+                </span>
                 
                 <div class="flag_box mt-1">
                     <img :src="flag" alt="">
@@ -116,7 +116,7 @@
         }
     }
 
-.description{
+.description {
     display: none;
     width: 200px;
     height: 300px;
@@ -124,7 +124,7 @@
     padding: 15px;
     color: white;
     overflow-y: auto;
-    font-size: 0.8em;
+    font-size: 1em;
 
     
     .flag_box {
@@ -144,7 +144,7 @@
     }
 
     .overview{
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
 }
 
