@@ -40,30 +40,35 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 <template>
 
     <main>
-      <div class="container">
-        <div class="row justify-content-center">
+      
+          <h3 class="ms-2">
+              Movie
+          </h3>
 
+        <div class="d-flex">
         <!-- movie-->
-
-        <h1>
-            Movie
-        </h1>
-            <div class="my_card" v-for="(singleMovie, index) in store.movie" :key="index">
+            <div class="my_card mb-5" v-for="(singleMovie, index) in store.movie" :key="index">
             <SingleMovieSeries :elementData="singleMovie"/>
             </div>
 
-        <!-- serie tv -->
+        </div>
         
-        <h1 class="mt-5">
+        <h3 class="mt-5 m-2">
             Serie Tv
-        </h1>
+        </h3>
+        <!-- serie tv -->
+
+        <div class="d-flex">
 
             <div class="my_card series" v-for="(singleSeries, index) in store.serietv" :key="index">
                 <SingleMovieSeries :elementData="singleSeries"/>
             </div>
 
         </div>
-      </div>
+
+
+    
+      
     </main>
 
 </template>
@@ -78,20 +83,16 @@ main {
     height: calc(100vh - 100px);
     background-color: bisque;
     overflow-y: auto;
+    padding: 20px 30px;
 }
 
 .my_card {
-    width: calc(100% / 6);
+    width: 200px;
     height: 300px;
     text-align: center;
     margin: 10px 10px;
-    padding: 10px 5px;
-    background-color: chocolate;
+    flex-shrink: 0;
 
-   
 }
 
-.series {
-    background-color: purple;
-}
 </style>

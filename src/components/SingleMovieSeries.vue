@@ -57,24 +57,45 @@
         <div class="img_movie">
             <img v-if="elementData.backdrop_path == null" src="../assets/img/posternotfound.png" alt="">
 
-            <img v-else :src="`https://image.tmdb.org/t/p/original${elementData.backdrop_path}`" alt="">
-        </div>
-            <h5>
-            {{ elementData.title ?? elementData.name }}
-            </h5>
-            <h6>
-            {{ elementData.original_title ?? elementData.original_name }}
-            </h6>
+            <img v-else :src="`https://image.tmdb.org/t/p/original${elementData.backdrop_path}`" alt="" class="img-fluid">
+            
+            <div class="description">
+    
+                <p>
+    
+                    <strong>
+                        Titolo: 
+                    </strong>
+                    {{ elementData.title ?? elementData.name }}
+                </p>
+    
+                <p>
+                    <strong>
+                        Titolo originale:
+                    </strong>
+                {{ elementData.original_title ?? elementData.original_name }}
+                </p>
+    
+                <strong>
+                    Voto:
+                    <span>
+                        {{ vote }}
+                    </span>
+    
+                    <i v-for="num in vote" :key="num" class="fa-solid fa-star"></i>
+                    <i  v-for="num in (5 - vote)" :key="num" class="fa-regular fa-star"></i>
+                </strong>
+                
+                <div class="flag_box mt-1">
+                    <img :src="flag" alt="">
+                </div>
 
-            <div class="flag_box">
-            <img :src="flag" alt="">
+                <p class="overview">
+                    {{ elementData.overview }}
+                </p>
+            
             </div>
-        
-            <strong>
-                {{ vote }}
-                <i v-for="num in vote" :key="num" class="fa-solid fa-star"></i>
-                <i  v-for="num in (5 - vote)" :key="num" class="fa-regular fa-star"></i>
-            </strong>
+        </div>
 
 </div>
 
@@ -85,7 +106,9 @@
 <style lang="scss" scoped>
 @use '../assets/scss/variables.scss' as *;
 .img_movie {
-        height: 250px;
+        height: 300px;
+        position: relative;
+        
         img {
             width: 100%;
             height: 100%;
@@ -93,10 +116,22 @@
         }
     }
 
+.description{
+    display: none;
+    width: 200px;
+    height: 300px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 15px;
+    color: white;
+    overflow-y: auto;
+    font-size: 0.8em;
+
+    
     .flag_box {
         width: 15px;
         height: 10px;
         margin-bottom: 20px;
+        margin-left: calc(150px / 2);
 
         img {
             width: 100%;
@@ -104,6 +139,21 @@
     }
 
     .fa-star{
+        padding-top: 10px;
         color: gold;
     }
+
+    .overview{
+        font-size: 0.7em;
+    }
+}
+
+.img_movie:hover .description {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
 </style>
