@@ -1,6 +1,7 @@
 <script>
 //import
 import {store} from '../store.js'
+import axios from 'axios'
 import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 
    export default {
@@ -13,41 +14,13 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
     },
     methods: {
         //function
-        getVote(value){
-            
-            const finalVote = Math.floor(value / 2 );
         
-            console.log(finalVote)
-            return finalVote
-        },
-        flag(){
-            if(this.store.popularMovie.original_language == 'en'){
-                return 'https://flagicons.lipis.dev/flags/4x3/gb.svg'
-            }
-            else if(this.store.popularMovie.original_language == 'it'){
-                return 'https://flagicons.lipis.dev/flags/4x3/it.svg'
-            }
-            else if(this.store.popularMovie.original_language == 'fr'){
-                return 'https://flagicons.lipis.dev/flags/4x3/fr.svg'
-            }
-            else if(this.store.popularMovie.original_language == 'sp'){
-                return 'https://flagicons.lipis.dev/flags/4x3/sp.svg'
-            }
-            else if(this.store.popularMovie.original_language == 'de'){
-                return 'https://flagicons.lipis.dev/flags/4x3/de.svg'
-            }
-            else{
-                return 'https://flagicons.lipis.dev/flags/4x3/xx.svg'
-            }
-        }
-    },
-    computed:{
-
     },
     components: {
         //dichiarazione
         SingleMovieSeries,
     },
+    
     props:{
         //utilizzo per file padre
     }
@@ -64,54 +37,16 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
         <h3 class="text-white mt-5 m-2">
             Popular Movie
         </h3>
-    <div class="d-flex card-row">
-        <!-- popular movie-->
+
+        <div class="d-flex card-row">
+            <!-- popular movie-->
             
-        <div class="my_card mb-5" v-for="(singlePopularMovie, index) in store.popularMovie" :key="index">
-        <div class="img_movie">
-            <img v-if="singlePopularMovie.backdrop_path == null" src="../assets/img/posternotfound.png" alt="">
-
-            <img v-else :src="`https://image.tmdb.org/t/p/original${singlePopularMovie.backdrop_path}`" alt="" class="img-fluid">
-            
-            <div class="description">
-
-                <p>
-                    <span>
-                        Titolo: 
-                    </span>
-                    {{ singlePopularMovie.title }}
-                </p>
-
-                <p>
-                    <span>
-                        Titolo originale:
-                    </span>
-                {{ singlePopularMovie.original_title}}
-                </p>
-
-                <span>
-                    Voto:
-                    <span>
-                        {{ getVote(singlePopularMovie.vote_average) }}
-                    </span>
-
-                    <!-- <i v-for="num in getVote(singlePopularMovie.vote_average)" :key="num" class="fa-solid fa-star"></i>
-                    <i  v-for="num in (5 - getVote(singlePopularMovie.vote_average))" :key="num" class="fa-regular fa-star"></i> -->
-                </span>
-                
-                <div class="flag_box mt-1">
-                    <img :src="flag()" alt="">
-                </div>
-
-                <p class="overview">
-                    {{ singlePopularMovie.overview }}
-                </p>
-            
-            </div>
-
+            <div class="my_card mb-5" v-for="(singlePopularMovie, index) in store.popularMovie" :key="index">
+                <SingleMovieSeries :elementData="singlePopularMovie"/>
+            </div> 
         </div>
-        </div>    
-    </div>
+        
+     
 
         <h3 class="text-white mt-5 ms-2" id="movie">
             Movie
@@ -121,7 +56,7 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
         <!-- movie-->
             <div v-if="store.movie.length > 0" class="d-flex">
                 <div class="my_card mb-5" v-for="(singleMovie, index) in store.movie" :key="index">
-                <SingleMovieSeries :elementData="singleMovie"/>
+                    <SingleMovieSeries :elementData="singleMovie"/>
                 </div>
 
             </div>

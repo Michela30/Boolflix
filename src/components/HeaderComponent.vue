@@ -42,6 +42,11 @@ import {store} from '../store.js'
                 </a>
                 <ul class="dropdown-menu">
                     <li>
+                        <a class="dropdown-item" href="#">
+                            Popular
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" href="#movie">
                             Movie
                         </a>
