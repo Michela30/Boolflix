@@ -4,5 +4,6 @@ export const store = reactive ({
     movie: [],
     serietv: [],
     searchBar: '',
+    popularMovie: []
     
 })

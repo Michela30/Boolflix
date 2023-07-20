@@ -26,7 +26,7 @@
 
 <template>
     <footer>
-        <p class="text-danger">
+        <p class="text-danger text-center py-2">
           Powered by @Michela-Boolflix
         </p>
     </footer>

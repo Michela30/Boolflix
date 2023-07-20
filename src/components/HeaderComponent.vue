@@ -42,12 +42,12 @@ import {store} from '../store.js'
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#movie">
                             Movie
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#series">
                             Serie Tv
                         </a>
                     </li>
@@ -92,7 +92,7 @@ import {store} from '../store.js'
                         <img src="../assets/img/account-icon.png" alt="">
                         
                     </div>
-                    <span>
+                    <span class="ps-2">
                         Mica
                     </span>
                 </a>

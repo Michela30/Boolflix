@@ -44,6 +44,16 @@ import axios from 'axios';
         })
       },
 
+      getPopularMovie(){
+          axios.get('https://api.themoviedb.org/3/person/popular?api_key=1ca56690c738fe07273dfdadfc643ca2', {
+                    params: {
+                      page: 1,
+                    }
+                })
+        .then(response => {
+          this.store.popularMovie = response.data.results;
+        })
+      },
       searchMovie(){
         this.getMovie();
         this.getSeries();
@@ -54,6 +64,7 @@ import axios from 'axios';
     created(){
       this.getMovie();
       this.getSeries();
+      this.getPopularMovie()
 
     }
   }

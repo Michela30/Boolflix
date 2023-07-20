@@ -106,7 +106,7 @@
 <style lang="scss" scoped>
 @use '../assets/scss/variables.scss' as *;
 .img_movie {
-        height: 300px;
+        height: 250px;
         position: relative;
         
         img {
@@ -119,7 +119,6 @@
 .description {
     display: none;
     width: 200px;
-    height: 300px;
     background-color: rgba(0,0,0,0.8);
     padding: 15px;
     color: white;
