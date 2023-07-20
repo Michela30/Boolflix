@@ -27,27 +27,98 @@ import {store} from '../store.js'
 <template>
     
     <header>
-       <div class="search_bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        logo
-                    </div>
+       
 
-                    <div class="col-6">
-                        <form action="" @submit.prevent="$emit('search')">
+    <div class="d-flex">
+        <div class="col-6 mx-5">
 
-                            <input v-model="store.searchBar" type="text" name="" id="" placeholder="Ricerca">
-    
-                            <button type="submit">
-                                Invia
-                            </button>
-
-                        </form>
-                    </div>
-                </div>
+            <div class="d-flex left-nav">
+                <a class="navbar-brand text-danger fs-2 pt-1" href="#">
+                    Boolflix
+                </a>
+                    
+                <a class=" nav-item dropdown nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sfoglia
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Film
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Serie Tv
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Kids
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Lista dei preferiti
+                        </a>
+                    </li>
+                </ul>
+                    
             </div>
-       </div>
+        </div>
+
+        <div class="col-6">
+            <div class="d-flex right-nav">
+
+                <form action="" @submit.prevent="$emit('search')" class="d-flex">
+    
+                    <input v-model="store.searchBar" class="form-control bg-transparent text-white" type="text" name="" id="" placeholder="Ricerca">
+    
+                    <button type="submit" class="btn btn-transparent border border-danger text-white">
+                        Invia
+                    </button>
+    
+                </form>
+
+                <span class="silent-icon">
+                    <i class="fa-solid fa-bell"></i>
+                </span>
+
+                <a class="nav-item dropdown nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-icon">
+
+                        <img src="../assets/img/account-icon.png" alt="">
+                        
+                    </div>
+                    <span>
+                        Mica
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Classe 101
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Altri profili
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            Impostazioni
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+       
     </header>
 
 </template>
@@ -58,9 +129,41 @@ import {store} from '../store.js'
 @use '../assets/scss/variables.scss' as *;
 
 header{
-    height: 50px;
+    height: 60px;
     background-color: black;
     color: white;
+
+    .left-nav{
+
+        >* {
+            padding: 17px 15px;
+        }
+    }
+
+    .right-nav {
+
+        form{
+            padding: 10px 0;
+            width: 50%;
+        }
+
+        .silent-icon{
+            padding: 20px 20px;
+        }
+        .profile-icon{
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            padding: 15px 0;
+            display: inline-block;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        
+}
 }
 
 </style>
