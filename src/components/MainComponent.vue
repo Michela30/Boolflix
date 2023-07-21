@@ -60,7 +60,17 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
         </div>
 
 
+        <h3 id="favourite" class="text-white mt-5 m-2">
+            Ecco quello che stavi cercando:
+        </h3>
 
+        <div class="d-flex card-row">
+            <!-- favourite movie-->
+            
+            <div class="my_card mb-5" v-for="(singleSearchMovie, index) in store.discoveredMovie" :key="index">
+                <SingleMovieSeries :elementData="singleSearchMovie"/>
+            </div> 
+        </div>
 
         <h3 class="text-white mt-5 ms-2" id="movie">
             Movie

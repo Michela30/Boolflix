@@ -32,6 +32,7 @@ import axios from 'axios';
                 })
         .then(response => {
           this.store.movie = response.data.results;
+
         })
       },
 
@@ -50,12 +51,11 @@ import axios from 'axios';
       getPopularMovie(){
           axios.get('https://api.themoviedb.org/3/movie/popular?api_key=1ca56690c738fe07273dfdadfc643ca2', {
                     params: {
-                      page: 1,
+                      page: 2,
                     }
                 })
         .then(response => {
           this.store.popularMovie = response.data.results;
-          console.log(response.data.results)
         })
       },
 
@@ -67,21 +67,50 @@ import axios from 'axios';
                 })
         .then(response => {
           this.store.myFavourite = response.data.results;
-          console.log(response.data.results)
+        })
+      },
+
+      getGenres(){
+        axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=1ca56690c738fe07273dfdadfc643ca2' )
+
+        .then(response => {
+          this.store.genres = response.data.genres;
+        })
+      },
+
+      getDiscoveredMovie(genreId){
+        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=1ca56690c738fe07273dfdadfc643ca2', {
+          params: {
+            with_genres: genreId
+          }
+        })
+
+        .then(response => {
+          this.store.discoveredMovie = response.data.results;
         })
       },
 
       searchMovie(){
+      
         this.getMovie();
         this.getSeries();
-        console.log('azione cerca film')
+        
+      },
+
+      searchGenres(ev, selectedGenreId){
+
+        this.getDiscoveredMovie(selectedGenreId)
+        this.getMovie()
+       
       },
     },
     created(){
       this.getMovie();
       this.getSeries();
-      this.getPopularMovie()
-      this.getFavourite()
+      this.getPopularMovie();
+      this.getFavourite();
+      this.getGenres();
+      this.getDiscoveredMovie()
     },
     mounted(){
 
@@ -100,7 +129,7 @@ import axios from 'axios';
 
   <div v-else>
     
-    <HeaderComponent @search="searchMovie()"/>
+    <HeaderComponent @search="searchMovie" @searchGenres="searchGenres"/>
 
     <MainComponent/>
 
