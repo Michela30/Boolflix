@@ -42,7 +42,7 @@ import {store} from '../store.js'
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#popular">
                             Popular
                         </a>
                     </li>
@@ -65,7 +65,7 @@ import {store} from '../store.js'
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#favourite">
                             Lista dei preferiti
                         </a>
                     </li>

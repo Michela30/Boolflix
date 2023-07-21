@@ -1,7 +1,6 @@
 <script>
 //import
 import {store} from '../store.js'
-import axios from 'axios'
 import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 
    export default {
@@ -34,7 +33,7 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 
     <main>
         
-        <h3 class="text-white mt-5 m-2">
+        <h3 id="popular" class="text-white mt-5 m-2">
             Popular Movie
         </h3>
 
@@ -46,7 +45,22 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
             </div> 
         </div>
         
-     
+
+
+        <h3 id="favourite" class="text-white mt-5 m-2">
+            Your favourite
+        </h3>
+
+        <div class="d-flex card-row">
+            <!-- favourite movie-->
+            
+            <div class="my_card mb-5" v-for="(singleFavourite, index) in store.myFavourite" :key="index">
+                <SingleMovieSeries :elementData="singleFavourite"/>
+            </div> 
+        </div>
+
+
+
 
         <h3 class="text-white mt-5 ms-2" id="movie">
             Movie
@@ -106,6 +120,20 @@ main {
 }
 .card-row{
     overflow-x: auto;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 10px;
 }
 .my_card {
     width: 200px;
