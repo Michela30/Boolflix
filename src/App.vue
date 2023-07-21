@@ -3,6 +3,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import StartComponent from './components/StartComponent.vue'
 
 import {store} from './store.js'
 
@@ -12,12 +13,14 @@ import axios from 'axios';
     data() {
       return{
         store,
+        isLoad: false
       }
     },
     components: {
       HeaderComponent,
       MainComponent,
-      FooterComponent
+      FooterComponent,
+      StartComponent
     },
     methods: {
       getMovie(){
@@ -73,21 +76,30 @@ import axios from 'axios';
         this.getSeries();
         console.log('azione cerca film')
       },
-      
     },
     created(){
       this.getMovie();
       this.getSeries();
       this.getPopularMovie()
       this.getFavourite()
-    }
+    },
+    mounted(){
+
+      setTimeout(() => {
+        this.isLoad = true;
+      }, 2500);
+    
+    },
   }
 </script>
 
 
 
 <template>
-  <div>
+  <StartComponent v-if="!isLoad" />
+
+  <div v-else>
+    
     <HeaderComponent @search="searchMovie()"/>
 
     <MainComponent/>

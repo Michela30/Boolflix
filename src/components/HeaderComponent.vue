@@ -137,6 +137,10 @@ header{
     height: 60px;
     background-color: black;
     color: white;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 2;
 
     .left-nav{
 
