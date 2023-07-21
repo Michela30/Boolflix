@@ -33,35 +33,9 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
 
     <main>
         
-        <h3 id="popular" class="text-white mt-5 m-2">
-            Popular Movie
-        </h3>
-
-        <div class="d-flex card-row">
-            <!-- popular movie-->
-            
-            <div class="my_card mb-5" v-for="(singlePopularMovie, index) in store.popularMovie" :key="index">
-                <SingleMovieSeries :elementData="singlePopularMovie"/>
-            </div> 
-        </div>
         
-
-
         <h3 id="favourite" class="text-white mt-5 m-2">
-            Your favourite
-        </h3>
-
-        <div class="d-flex card-row">
-            <!-- favourite movie-->
-            
-            <div class="my_card mb-5" v-for="(singleFavourite, index) in store.myFavourite" :key="index">
-                <SingleMovieSeries :elementData="singleFavourite"/>
-            </div> 
-        </div>
-
-
-        <h3 id="favourite" class="text-white mt-5 m-2">
-            Ecco quello che stavi cercando:
+            Ecco quello che stavi cercando per genere:
         </h3>
 
         <div class="d-flex card-row">
@@ -112,8 +86,34 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
                 </h3>
             </div>
         </div>
+
+
+        <h3 id="popular" class="text-white mt-5 m-2">
+            Popular Movie
+        </h3>
+
+        <div class="d-flex card-row">
+            <!-- popular movie-->
+            
+            <div class="my_card mb-5" v-for="(singlePopularMovie, index) in store.popularMovie" :key="index">
+                <SingleMovieSeries :elementData="singlePopularMovie"/>
+            </div> 
+        </div>
+        
+
+
+        <h3 id="favourite" class="text-white mt-5 m-2">
+            Your favourite
+        </h3>
+
+        <div class="d-flex card-row">
+            <!-- favourite movie-->
+            
+            <div class="my_card mb-5" v-for="(singleFavourite, index) in store.myFavourite" :key="index">
+                <SingleMovieSeries :elementData="singleFavourite"/>
+            </div> 
+        </div>
     
-      
     </main>
 
 </template>

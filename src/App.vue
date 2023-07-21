@@ -13,7 +13,7 @@ import axios from 'axios';
     data() {
       return{
         store,
-        isLoad: false
+        isLoad: false,
       }
     },
     components: {
