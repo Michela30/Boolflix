@@ -34,7 +34,7 @@ import SingleMovieSeries from '../components/SingleMovieSeries.vue'
     <main>
         
         
-        <h3 id="favourite" class="text-white mt-5 m-2">
+        <h3 class="text-white mt-5 m-2">
             Ecco quello che stavi cercando per genere:
         </h3>
 
