@@ -1,7 +1,6 @@
-# Vue 3 + Vite
+# Boolflix
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Riproduzione di Netflix, con le tecniche di Html, Sass, Vite e Node.js, Vuejs e chiamata API tramite la libreria Axios.
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Boolflix](https://github.com/Michela30/vite-boolflix/assets/128288972/00914edd-cf03-4f42-b774-c44e59a5d136)
